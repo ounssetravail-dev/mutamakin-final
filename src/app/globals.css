@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/* =========================
+   🎨 DESIGN TOKENS
+========================= */
+:root {
+  --background: #f8fafc;
+  --surface: #ffffff;
+
+  --foreground: #0f172a;
+  --muted: #64748b;
+
+  --primary: #0ea5e9;
+  --primary-hover: #0284c7;
+
+  --border: #e2e8f0;
+  --ring: rgba(14, 165, 233, 0.25);
+
+  --radius: 12px;
+}
+
+/* =========================
+   🧠 BASE RESET
+========================= */
+* {
+  @apply box-border;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* =========================
+   🔤 TYPOGRAPHY SYSTEM
+========================= */
+h1 {
+  @apply text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900;
+}
+
+h2 {
+  @apply text-2xl md:text-3xl font-bold text-slate-900;
+}
+
+h3 {
+  @apply text-lg font-semibold text-slate-900;
+}
+
+p {
+  @apply text-sm text-slate-500 leading-relaxed;
+}
+
+/* =========================
+   🟦 BUTTON SYSTEM
+========================= */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  @apply shadow-md;
+}
+
+.btn-secondary {
+  @apply border border-slate-200 bg-white text-slate-700;
+}
+
+.btn-secondary:hover {
+  @apply bg-slate-50 shadow-sm;
+}
+
+/* =========================
+   📦 CARD SYSTEM
+========================= */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  @apply p-6 shadow-sm transition-all duration-300;
+}
+
+.card-hover {
+  @apply hover:shadow-lg hover:-translate-y-1;
+}
+
+/* =========================
+   ⌨️ INPUT SYSTEM
+========================= */
+.input {
+  @apply w-full px-4 py-2 text-sm rounded-xl border border-slate-200 bg-white outline-none transition;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+/* =========================
+   🧭 NAVBAR
+========================= */
+.header {
+  @apply sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-xl;
+}
+
+/* =========================
+   ✨ UTILITIES
+========================= */
+.hover-lift {
+  @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-md;
+}
+
+.section {
+  @apply py-16 md:py-20 px-6;
+}
+
+.container {
+  @apply max-w-7xl mx-auto;
+}
+
+/* =========================
+   🎯 SCROLLBAR
+========================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* =========================
+   ✨ MICRO ANIMATIONS
+========================= */
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
